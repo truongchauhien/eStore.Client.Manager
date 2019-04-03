@@ -6,15 +6,14 @@ module.exports = {
     module: {
         rules: [
             {
-                // Include ts, txs, js and jsx files.
-                test: /\.(ts|js)x?$/,
+                test: /\.tsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader',
+                use: 'ts-loader'
             }
         ]
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.json']
+        extensions: ['.tsx', '.ts', '.js']
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
