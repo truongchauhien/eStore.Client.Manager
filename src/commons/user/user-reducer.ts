@@ -3,7 +3,8 @@ import {
     USER_LOGIN_REQUEST_ERROR,
     USER_LOGIN_REQUEST_SUCCESS,
     IUserAction,
-    IUserLoginRequestSuccess
+    IUserLoginRequestSuccess,
+    USER_LOGOUT_REQUEST
 } from './user-actions';
 
 export interface UserState {
@@ -15,7 +16,7 @@ export interface UserState {
     roles: string[]
 }
 
-const defaultUserState = ((): UserState => {
+const initUserState = ((): UserState => {
     let userJson = localStorage.getItem('user');
     let user: IUserLoginRequestSuccess['payload']['user'] = userJson && JSON.parse(userJson);
 
@@ -29,7 +30,7 @@ const defaultUserState = ((): UserState => {
     }
 })();
 
-export default function userReducer(state: UserState = defaultUserState, action: IUserAction): UserState {
+export default function userReducer(state: UserState = initUserState, action: IUserAction): UserState {
     switch (action.type) {
         case USER_LOGIN_REQUEST:
             return Object.assign({}, state,
@@ -59,6 +60,13 @@ export default function userReducer(state: UserState = defaultUserState, action:
                     roles
                 }
             )
+        case USER_LOGOUT_REQUEST:
+            return Object.assign({}, state, {
+                isAuthenticated: false,
+                userName: null,
+                fullName: null,
+                roles: []
+            });
         default:
             return state
     }
