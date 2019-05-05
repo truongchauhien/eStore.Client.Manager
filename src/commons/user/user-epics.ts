@@ -7,13 +7,13 @@ import {
     userLoginRequestSuccess,
     userLoginRequestError
 } from './user-actions';
-import { loginRequest } from '../apis/auth';
+import { userLoginApi } from '../apis/auth';
 
 export const userLoginRequestEpic = (action$: any) => {
     return action$.pipe(
         filter((action: IUserAction) => action.type === USER_LOGIN_REQUEST),
         mergeMap((action: IUserLoginRequest) =>
-            from(loginRequest(action.payload)).pipe(
+            from(userLoginApi(action.payload)).pipe(
                 map(data => userLoginRequestSuccess(data)),
                 catchError(data => of(userLoginRequestError(data))))
         )
