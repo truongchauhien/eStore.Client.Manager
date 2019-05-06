@@ -52,7 +52,7 @@ async function makeApiRequest(options: IMakeApiRequestOptions): Promise<Response
 }
 
 interface IRequestApiOptions {
-    method: 'GET' | 'POST' | 'PUT',
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE',
     resource: string,
     params?: {
         [key: string]: string
