@@ -8,7 +8,7 @@ import { IDistributorState } from '../../distributor/distributor-reducer';
 import { bindActionCreators } from 'redux';
 import { categoryListAction } from '../../category/category-actions';
 import { distributorListAction } from '../../distributor/distributor-actions';
-import { IProduct } from '../product-reducer';
+import { IProduct } from '../../../../commons/types/models/product';
 
 const unitOptions: { key: string, text: string, value: string }[] = [
     { key: 'kg', text: 'kg', value: 'kg' },

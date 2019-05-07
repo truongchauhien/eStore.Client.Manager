@@ -13,17 +13,7 @@ import {
     PRODUCT_DELETE_SUCCESS,
     PRODUCT_DELETE_FAILURE
 } from "./product-actions";
-
-export interface IProduct {
-    _id: string,
-    name: string,
-    upc: string,
-    unit: string,
-    price: number,
-    quantity: number,
-    category: string,
-    distributor: string
-}
+import { IProduct } from "../../../commons/types/models/product";
 
 export interface ProductState {
     total: number,

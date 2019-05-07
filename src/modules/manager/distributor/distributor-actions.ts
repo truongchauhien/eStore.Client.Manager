@@ -1,5 +1,5 @@
-import { IDistributor } from "./distributor-reducer";
 import { IApiResponse } from "../../../commons/apis/apiRequest";
+import { IDistributor } from "../../../commons/types/models/distributor";
 
 //#region DISTRIBUTOR_CREATE
 export const DISTRIBUTOR_CREATE = 'DISTRIBUTOR_CREATE';

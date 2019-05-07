@@ -1,6 +1,6 @@
 import { IApiResponse } from "../../../commons/apis/apiRequest";
 import { NumericDictionary } from "lodash";
-import { ICategory } from "./category-reducer";
+import { ICategory } from "../../../commons/types/models/category";
 
 export const CATEGORY_CREATE = 'CATEGORY_CREATE';
 export const CATEGORY_CREATE_SUCCESS = 'CATEGORY_CREATE_SUCCESS';

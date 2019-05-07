@@ -6,7 +6,8 @@ import { AppState } from '../../../rootReducer';
 import CategoryDetail from './category-detail/category-detail';
 import DetailModal from '../commons/detail-modal';
 import { categoryCreateAction, categoryListAction, categoryUpdateAction, categoryDeleteAction } from './category-actions';
-import { ICategoryState, ICategory } from './category-reducer';
+import { ICategoryState } from './category-reducer';
+import { ICategory } from '../../../commons/types/models/category';
 
 interface ICategoryManagementProps {
     categoryCreateAction: typeof categoryCreateAction,

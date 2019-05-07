@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Icon, Table, Pagination, PaginationProps } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { AppState } from '../../../rootReducer';
-import { ProductState, IProduct } from './product-reducer';
+import { ProductState } from './product-reducer';
 import * as styles from './styles.scss';
 import ProductDetail from './product-detail/product-detail';
 import {
@@ -13,6 +13,7 @@ import {
 } from './product-actions';
 import { bindActionCreators } from 'redux';
 import DetailModal from '../commons/detail-modal';
+import { IProduct } from '../../../commons/types/models/product';
 
 interface IProductManagementProps {
     products: ProductState
