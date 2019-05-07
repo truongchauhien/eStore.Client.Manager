@@ -7,12 +7,24 @@ import {
     updateCategoryEpic,
     deleteCategoryEpic
 } from './modules/manager/category/category-epics';
+import {
+    listDistributorEpic,
+    createDistributorEpic,
+    updateDistributorEpic,
+    deleteDistributorEpic
+} from './modules/manager/distributor/distributor-epics';
 
 export default combineEpics(
     userLoginRequestEpic,
     productListEpic,
+
     listCategoryEpic,
     createCategoryEpic,
     updateCategoryEpic,
-    deleteCategoryEpic
+    deleteCategoryEpic,
+    
+    listDistributorEpic,
+    createDistributorEpic,
+    updateDistributorEpic,
+    deleteDistributorEpic
 );
