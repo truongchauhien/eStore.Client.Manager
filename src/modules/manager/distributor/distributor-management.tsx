@@ -4,7 +4,7 @@ import { AppState } from '../../../rootReducer';
 import { Button, Table, Icon } from 'semantic-ui-react';
 import DetailModal from '../commons/detail-modal';
 import { IDistributor, IDistributorState } from './distributor-reducer';
-import DistributorDetail from './distributor-details/distributor-details';
+import DistributorDetail from './distributor-detail/distributor-detail';
 import { bindActionCreators } from 'redux';
 import { distributorCreateAction, distributorListAction, distributorUpdateAction, distributorDeleteAction } from './distributor-actions';
 
