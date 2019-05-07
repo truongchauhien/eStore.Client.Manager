@@ -10,6 +10,7 @@
   "author": "Truong Chau Hien",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
@@ -21,6 +22,7 @@
     "semantic-ui-react": "^0.86.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.123",
     "@types/node": "^11.13.0",
     "@types/react": "^16.8.11",
     "@types/react-dom": "^16.8.3",
