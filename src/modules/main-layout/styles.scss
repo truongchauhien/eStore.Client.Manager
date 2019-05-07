@@ -1,0 +1,14 @@
+.mainFlex{
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+
+    .menuBar {
+        margin: 0;
+    }
+
+    .sideBar {
+        margin: 0;
+        flex: 1;
+    }
+}

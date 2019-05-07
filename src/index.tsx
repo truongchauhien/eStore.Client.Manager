@@ -7,7 +7,7 @@ import rootReducer, { AppState } from './rootReducer';
 import { createEpicMiddleware } from 'redux-observable';
 import rootEpic from './rootEpic';
 import Login from './modules/login/login-container'
-import MainLayout from './modules/main/main-layout';
+import MainLayout from './modules/main-layout/main-layout-container';
 import SecuredRoute from './commons/permission/secured-route';
 
 // ===============================================
