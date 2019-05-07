@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux';
-import userReducer, { UserState } from './commons/user/user-reducer';
+import userReducer from './commons/user/user-reducer';
+import productReducer from './modules/manager/product/product-reducer';
+import categoryReducer from './modules/manager/category/category-reducer';
 
 const rootReducer = combineReducers({
-    user: userReducer
+    user: userReducer,
+    products: productReducer,
+    categories: categoryReducer
 });
 
-export type AppState = ReturnType<typeof rootReducer>
-export default rootReducer
+export type AppState = ReturnType<typeof rootReducer>;
+export default rootReducer;
