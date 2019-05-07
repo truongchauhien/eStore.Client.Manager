@@ -1,1 +1,1 @@
-# eStore.Client.Manager
+# eStore.Client
