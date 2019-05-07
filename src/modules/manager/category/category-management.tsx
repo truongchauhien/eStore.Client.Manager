@@ -152,9 +152,7 @@ class CategoryManagement extends React.Component<ICategoryManagementProps, ICate
                         <Table.Footer>
                             <Table.Row>
                                 <Table.HeaderCell colSpan='4'>
-                                    <DetailModal open={false} title={'Cập nhật danh mục'}>
-                                        <CategoryDetail />
-                                    </DetailModal>
+                                    
                                 </Table.HeaderCell>
                             </Table.Row>
                         </Table.Footer>
