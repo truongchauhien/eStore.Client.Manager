@@ -1,6 +1,11 @@
 import { combineEpics } from 'redux-observable';
 import { userLoginRequestEpic } from './commons/user/user-epics';
-import { productListEpic } from './modules/manager/product/product-epics';
+import {
+    createProductEpic,
+    listProductEpic,
+    updateProductEpic,
+    deleteProductEpic
+} from './modules/manager/product/product-epics';
 import {
     listCategoryEpic,
     createCategoryEpic,
@@ -16,13 +21,17 @@ import {
 
 export default combineEpics(
     userLoginRequestEpic,
-    productListEpic,
+
+    createProductEpic,
+    listProductEpic,
+    updateProductEpic,
+    deleteProductEpic,
 
     listCategoryEpic,
     createCategoryEpic,
     updateCategoryEpic,
     deleteCategoryEpic,
-    
+
     listDistributorEpic,
     createDistributorEpic,
     updateDistributorEpic,
