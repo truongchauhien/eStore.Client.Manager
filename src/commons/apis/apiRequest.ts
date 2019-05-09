@@ -25,7 +25,9 @@ async function makeApiRequest(options: IMakeApiRequestOptions): Promise<Response
         let pairs = [];
         for (const key in params) {
             const value = params[key];
-            pairs.push(`${key}=${value}`);
+            if (value) {
+                pairs.push(`${key}=${encodeURIComponent(String(value))}`);
+            }
         }
 
         return pairs.join('&');
@@ -55,7 +57,7 @@ interface IRequestApiOptions {
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
     resource: string,
     params?: {
-        [key: string]: string
+        [key: string]: any
     },
     body?: {
         [key: string]: any
