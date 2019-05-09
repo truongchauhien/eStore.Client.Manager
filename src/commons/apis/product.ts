@@ -5,10 +5,16 @@ import {
     IProductCreateAction,
     IProductCreateSuccessAction,
     IProductUpdateAction,
-    IProductUpdateSuccessAction,    
+    IProductUpdateSuccessAction,
     IProductDeleteAction,
     IProductDeleteSuccessAction
 } from '../../modules/manager/product/product-actions';
+import {
+    IListProductRequestPayload,
+    IListProductResponsePayload,
+    IDetailProductRequestPayload,
+    IDetailProductResponsePayload
+} from '../types/apis/product';
 
 export async function createProductApiRequest(payload: IProductCreateAction['payload']): Promise<IProductCreateSuccessAction['payload']> {
     const response = await requestApi({
@@ -24,18 +30,48 @@ export async function createProductApiRequest(payload: IProductCreateAction['pay
     throw response;
 }
 
-export async function listProductApiRequest(payload: IProductListAction['payload']): Promise<IProductListSuccessAction['payload']> {
+export async function listProductApiRequest(payload: IListProductRequestPayload): Promise<IListProductResponsePayload> {
     const response = await requestApi({
         method: 'GET',
         resource: '/product',
         params: {
-            limit: String(payload.limit),
-            offset: String(payload.offset)
+            name: payload.name,
+            limit: payload.limit,
+            offset: payload.offset
         }
     });
 
     if (response.isOk && response.status === 200) {
         return response.body as IProductListSuccessAction['payload'];
+    }
+
+    throw response;
+}
+
+export async function detailProductApiRequest(payload: IDetailProductRequestPayload): Promise<IDetailProductResponsePayload> {
+    let response;
+    if (payload.idType === '_id') {
+        response = await requestApi({
+            method: 'GET',
+            resource: `/product/${payload._id}`,
+            params: {
+                type: payload.idType
+            }
+        });
+    }
+
+    if (payload.idType === 'upc') {
+        response = await requestApi({
+            method: 'GET',
+            resource: `/product/${payload.upc}`,
+            params: {
+                type: payload.idType
+            }
+        });
+    }
+
+    if (response.isOk && response.status === 200) {
+        return response.body as IDetailProductResponsePayload;
     }
 
     throw response;
