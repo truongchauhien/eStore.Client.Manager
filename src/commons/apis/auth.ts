@@ -1,4 +1,4 @@
-import requestApi from './apiRequest';
+import requestApi from './commons/apiRequest';
 import { IUserLoginRequest, IUserLoginRequestSuccess } from '../user/user-actions';
 
 export async function userLoginApi(payload: IUserLoginRequest['payload']): Promise<IUserLoginRequestSuccess['payload']> {

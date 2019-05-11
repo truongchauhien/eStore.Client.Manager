@@ -1,4 +1,4 @@
-import requestApi from './apiRequest';
+import requestApi from './commons/apiRequest';
 import {
     ICategoryCreateAction,
     ICategoryCreateSuccessAction,

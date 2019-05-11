@@ -1,5 +1,5 @@
 import { ICreateOrderRequestPayload, ICreateOrderResponsePayload } from "../types/apis/order";
-import requestApi from "./apiRequest";
+import requestApi from "./commons/apiRequest";
 
 export const createOrderApiRequest = async (payload: ICreateOrderRequestPayload): Promise<ICreateOrderResponsePayload> => {
     const response = await requestApi({

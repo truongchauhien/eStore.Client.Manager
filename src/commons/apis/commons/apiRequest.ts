@@ -1,4 +1,4 @@
-import config from '../../config';
+import config from '../../../config';
 
 const API_SERVER = `${config.protocol}://${config.apiHost}:${config.apiPort}`;
 

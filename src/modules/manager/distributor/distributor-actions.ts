@@ -1,4 +1,4 @@
-import { IApiResponse } from "../../../commons/apis/apiRequest";
+import { IApiResponse } from "../../../commons/apis/commons/apiRequest";
 import { IDistributor } from "../../../commons/types/models/distributor";
 
 //#region DISTRIBUTOR_CREATE

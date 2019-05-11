@@ -1,4 +1,4 @@
-import { IApiResponse } from "../apis/apiRequest";
+import { IApiResponse } from "../apis/commons/apiRequest";
 
 export const USER_LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const USER_LOGIN_REQUEST_ERROR = 'LOGIN_REQUEST_ERROR';

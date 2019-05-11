@@ -1,4 +1,4 @@
-import { IApiResponse } from "../../../commons/apis/apiRequest";
+import { IApiResponse } from "../../../commons/apis/commons/apiRequest";
 import { NumericDictionary } from "lodash";
 import { ICategory } from "../../../commons/types/models/category";
 

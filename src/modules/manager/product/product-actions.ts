@@ -1,4 +1,4 @@
-import { IApiResponse } from "../../../commons/apis/apiRequest";
+import { IApiResponse } from "../../../commons/apis/commons/apiRequest";
 import { IProduct } from "../../../commons/types/models/product";
 
 //#region PRODUCT_CREATE
