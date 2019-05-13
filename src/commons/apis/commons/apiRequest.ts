@@ -17,7 +17,7 @@ interface IMakeApiRequestOptions {
 }
 
 async function makeApiRequest(options: IMakeApiRequestOptions): Promise<Response> {
-    function param(params: { [key: string]: string }) {
+    function param(params: { [key: string]: any }) {
         if (!params) {
             return '';
         }
@@ -25,7 +25,7 @@ async function makeApiRequest(options: IMakeApiRequestOptions): Promise<Response
         let pairs = [];
         for (const key in params) {
             const value = params[key];
-            if (value) {
+            if (value !== undefined) {
                 pairs.push(`${key}=${encodeURIComponent(String(value))}`);
             }
         }
@@ -33,7 +33,7 @@ async function makeApiRequest(options: IMakeApiRequestOptions): Promise<Response
         return pairs.join('&');
     }
 
-    function buildUrl(baseUri: string, uri: string, params: { [key: string]: string }) {
+    function buildUrl(baseUri: string, uri: string, params: { [key: string]: any }) {
         const queryString = param(params);
         if (queryString) {
             return `${baseUri}${uri}?${queryString}`;
