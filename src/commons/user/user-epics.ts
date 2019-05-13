@@ -7,7 +7,7 @@ import {
     userLoginRequestSuccess,
     userLoginRequestError
 } from './user-actions';
-import { userLoginApi } from '../apis/auth';
+import { userLoginApi } from '../apis/authApi';
 
 export const userLoginRequestEpic = (action$: any) => {
     return action$.pipe(

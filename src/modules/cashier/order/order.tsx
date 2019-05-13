@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Table, Label, Menu, Icon, Button, Form, Input, Dropdown, Select, DropdownOnSearchChangeData, Modal, Header, InputOnChangeData } from 'semantic-ui-react';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { debounceTime, throttleTime } from 'rxjs/operators'
-import { listProductApiRequest, detailProductApiRequest } from '../../../commons/apis/product';
+import { listProductApiRequest, detailProductApiRequest } from '../../../commons/apis/productApi';
 import { IOrder } from '../../../commons/types/models/order';
 import { convertNumberToCurrency } from '../../../commons/utils/numberFormat';
-import { createOrderApiRequest } from '../../../commons/apis/order';
+import { createOrderApiRequest } from '../../../commons/apis/orderApi';
 
 const options = [
     { key: 'all', text: 'All', value: 'all' },
@@ -166,7 +166,7 @@ class Order extends React.Component<IOrderProps, IOrderState> {
                 order: Object.assign<Partial<IOrder>, IOrder, Partial<IOrder>>({}, this.state.order, { items: [], totalAmount: 0 })
             });
         } catch (ex) {
-            console.log(ex);
+
         }
     }
 
