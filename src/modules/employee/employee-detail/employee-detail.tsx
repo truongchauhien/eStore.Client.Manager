@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Form, Input, Dropdown, DropdownItemProps } from 'semantic-ui-react';
-import { IEmployee } from '../../../../commons/types/models/employee';
+import { IEmployee } from '../../../commons/types/models/employee';
 
 interface IEmployeeDetailProps {
     employee?: Partial<IEmployee>
