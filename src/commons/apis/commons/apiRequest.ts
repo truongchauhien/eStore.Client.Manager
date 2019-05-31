@@ -1,4 +1,6 @@
 import config from '../../../config';
+import { jsonDateReviver } from '../../utils/timeFormat';
+import * as moment from 'moment';
 
 const API_SERVER = `${config.protocol}://${config.apiHost}:${config.apiPort}`;
 
@@ -18,6 +20,14 @@ interface IMakeApiRequestOptions {
 
 async function makeApiRequest(options: IMakeApiRequestOptions): Promise<Response> {
     function param(params: { [key: string]: any }) {
+        function convertValueToString(value: any) {
+            if (value instanceof Date) {
+                return value.toJSON();
+            }
+
+            return String(value);
+        }
+
         if (!params) {
             return '';
         }
@@ -26,7 +36,7 @@ async function makeApiRequest(options: IMakeApiRequestOptions): Promise<Response
         for (const key in params) {
             const value = params[key];
             if (value !== undefined) {
-                pairs.push(`${key}=${encodeURIComponent(String(value))}`);
+                pairs.push(`${key}=${encodeURIComponent(convertValueToString(value))}`);
             }
         }
 
@@ -132,10 +142,11 @@ async function requestApi(options: IRequestApiOptions): Promise<IApiResponse> {
             params: params
         });
 
+        const text = await response.text();
         result = {
             isOk: true,
             status: response.status,
-            body: await response.json()
+            body: JSON.parse(text, jsonDateReviver)
         };
     } catch (ex) {
         result = {
