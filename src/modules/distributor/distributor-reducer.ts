@@ -13,7 +13,7 @@ import {
     DISTRIBUTOR_DELETE_SUCCESS,
     DISTRIBUTOR_DELETE_FAILURE
 } from "./distributor-actions";
-import { IDistributor } from "../../../commons/types/models/distributor";
+import { IDistributor } from "../../commons/types/models/distributor";
 
 export interface IDistributorState {
     isFetching: boolean,
