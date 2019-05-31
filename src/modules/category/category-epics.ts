@@ -19,7 +19,7 @@ import {
     listCategoryApiRequest,
     updateCategoryApiRequest,
     deleteCategoryApiRequest
-} from '../../../commons/apis/categoryApi';
+} from '../../commons/apis/categoryApi';
 
 export const createCategoryEpic = (action$: any) => {
     return action$.pipe(
