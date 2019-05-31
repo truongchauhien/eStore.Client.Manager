@@ -2,13 +2,13 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Label, Input, Header, Modal, Button, Icon, Form, Dropdown } from 'semantic-ui-react';
 import * as styles from './styles.scss';
-import { AppState } from '../../../../rootReducer';
+import { AppState } from '../../../rootReducer';
 import { ICategoryState } from '../../category/category-reducer';
 import { IDistributorState } from '../../distributor/distributor-reducer';
 import { bindActionCreators } from 'redux';
 import { categoryListAction } from '../../category/category-actions';
 import { distributorListAction } from '../../distributor/distributor-actions';
-import { IProduct } from '../../../../commons/types/models/product';
+import { IProduct } from '../../../commons/types/models/product';
 
 const unitOptions: { key: string, text: string, value: string }[] = [
     { key: 'kg', text: 'kg', value: 'kg' },
