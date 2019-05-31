@@ -8,7 +8,7 @@ import {
     IDistributorUpdateSuccessAction,
     IDistributorDeleteSuccessAction,
     IDistributorDeleteAction
-} from '../../modules/manager/distributor/distributor-actions';
+} from '../../modules/distributor/distributor-actions';
 
 export async function createDistributorApiRequest(payload: IDistributorCreateAction['payload']): Promise<IDistributorCreateSuccessAction['payload']> {
     const response = await requestApi({
