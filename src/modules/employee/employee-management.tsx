@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Input, Select, Button, Table, Label, Menu, Icon, Pagination, PaginationProps, InputOnChangeData, DropdownProps } from 'semantic-ui-react';
-import { IEmployee } from '../../../commons/types/models/employee';
-import { listEmployeeApiRequest, updateEmployeeApiRequest, createEmployeeApiRequest, deleteEmployeeApiRequest } from '../../../commons/apis/employeeApi';
+import { IEmployee } from '../../commons/types/models/employee';
+import { listEmployeeApiRequest, updateEmployeeApiRequest, createEmployeeApiRequest, deleteEmployeeApiRequest } from '../../commons/apis/employeeApi';
 import * as styles from './styles.scss';
-import DetailModal from '../commons/detail-modal';
+import DetailModal from '../commons/detail-modal/detail-modal';
 import EmployeeDetail from './employee-detail/employee-detail';
-import { convertNumberToCurrency } from '../../../commons/utils/numberFormat';
+import { convertNumberToCurrency } from '../../commons/utils/numberFormat';
 
 interface IEmployeeManagementProps {
 
@@ -209,15 +209,8 @@ class EmployeeManagement extends React.Component<IEmployeeManagementProps, IEmpl
         return (
             <div>
                 <div className={styles.toolbox}>
-                    <div>
-                        <Input type='text' placeholder='' action onChange={this.handleSearchInputChange}>
-                            <Select options={options} defaultValue='name' onChange={this.handleSearchTypeChange} />
-                            <input />
-                            <Button type='submit' onClick={this.handleSearchClick}>Tìm ...</Button>
-                        </Input>
-                    </div>
                     <div className={styles.add}>
-                        <Button primary className={styles.addButton} onClick={this.handleAddEmployeeClick}>Thêm ...</Button>
+                        <Button primary className={styles.addButton} onClick={this.handleAddEmployeeClick}>Thêm nhân viên</Button>
                         <DetailModal
                             open={this.state.isAddEmployeeModalOpen}
                             title='Thêm nhân viên'
@@ -228,6 +221,13 @@ class EmployeeManagement extends React.Component<IEmployeeManagementProps, IEmpl
                         >
                             <EmployeeDetail onChange={this.handleAddEmployeeModalDetailChange} />
                         </DetailModal>
+                    </div>
+                    <div>
+                        <Input type='text' placeholder='' action onChange={this.handleSearchInputChange}>
+                            <Select options={options} defaultValue='name' onChange={this.handleSearchTypeChange} />
+                            <input />
+                            <Button type='submit' onClick={this.handleSearchClick}>Tìm ...</Button>
+                        </Input>
                     </div>
                 </div>
 
@@ -249,19 +249,16 @@ class EmployeeManagement extends React.Component<IEmployeeManagementProps, IEmpl
                                     <Table.Cell>{employee.position}</Table.Cell>
                                     <Table.Cell>{convertNumberToCurrency(employee.salary)}</Table.Cell>
                                     <Table.Cell>
-                                        <Button icon='edit' basic
-                                            onClick={() => { this.handleEditEmployeeClick(employee._id) }}
-                                        />
-                                        <Button basic
-                                            onClick={() => { this.handleDeleteEmployeeClick(employee._id) }}
-                                        >
-                                            <Icon name='delete' fitted color='red' />
-                                        </Button>
+                                        <Button.Group>
+                                            <Button negative onClick={() => { this.handleDeleteEmployeeClick(employee._id) }}>Xóa</Button>
+                                            <Button.Or />
+                                            <Button onClick={() => { this.handleEditEmployeeClick(employee._id) }}>Chỉnh sửa</Button>
+                                        </Button.Group>
 
                                         <DetailModal
                                             open={this.state.isEditEmployeeModalOpen}
-                                            title='Thêm nhân viên'
-                                            icon='add'
+                                            title='Chỉnh sửa thông tin nhân viên'
+                                            icon='edit'
                                             onClose={this.handleEditEmployeeModalClose}
                                             onYesClick={this.handleEditEmployeeModalYesClick}
                                             onNoClick={this.handleEditEmployeeModalNoClick}
