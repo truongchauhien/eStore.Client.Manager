@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, Icon, Table, Pagination, PaginationProps } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { AppState } from '../../../rootReducer';
+import { AppState } from '../../rootReducer';
 import { ProductState } from './product-reducer';
 import * as styles from './styles.scss';
 import ProductDetail from './product-detail/product-detail';
@@ -12,8 +12,9 @@ import {
     productDeleteAction
 } from './product-actions';
 import { bindActionCreators } from 'redux';
-import DetailModal from '../commons/detail-modal';
-import { IProduct } from '../../../commons/types/models/product';
+import DetailModal from '../commons/detail-modal/detail-modal';
+import { IProduct } from '../../commons/types/models/product';
+import { convertNumberToCurrency } from '../../commons/utils/numberFormat';
 
 interface IProductManagementProps {
     products: ProductState
@@ -24,6 +25,10 @@ interface IProductManagementProps {
 }
 
 interface IProuductManagementState {
+    products: {
+        total: number,
+        data: IProduct[]
+    },
     isAddProductModalOpen: boolean,
     isEditProductModalOpen: boolean,
     newProductData: Partial<IProduct>,
@@ -37,18 +42,22 @@ class ProductManagement extends React.Component<IProductManagementProps, IProudu
     constructor(props: IProductManagementProps) {
         super(props);
 
-        this.props.productListAction({
-            limit: PRODUCT_PER_PAGE,
-            offset: 0
-        });
-
         this.state = {
+            products: {
+                total: 0,
+                data: []
+            },
             isAddProductModalOpen: false,
             isEditProductModalOpen: false,
             newProductData: {},
             editingProductData: {},
             selectedProductId: ''
         }
+
+        this.props.productListAction({
+            limit: PRODUCT_PER_PAGE,
+            offset: 0
+        });
     }
 
     private handlePaginationPageChange = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, data: PaginationProps) => {
@@ -136,7 +145,7 @@ class ProductManagement extends React.Component<IProductManagementProps, IProudu
         return (
             <div>
                 <div>
-                    <Button content='Thêm sản phẩm' onClick={this.handleAddProductClick} />
+                    <Button primary content='Thêm sản phẩm' onClick={this.handleAddProductClick} />
                     <DetailModal
                         open={isAddProductModalOpen}
                         title={'Thêm sản phẩm'}
@@ -166,18 +175,15 @@ class ProductManagement extends React.Component<IProductManagementProps, IProudu
                                 return (
                                     <Table.Row key={index}>
                                         <Table.Cell>{product.name}</Table.Cell>
-                                        <Table.Cell>{product.price}</Table.Cell>
+                                        <Table.Cell>{convertNumberToCurrency(product.price)}</Table.Cell>
                                         <Table.Cell>{product.unit}</Table.Cell>
                                         <Table.Cell>{product.quantity}</Table.Cell>
                                         <Table.Cell>
-                                            <Button icon='edit' basic
-                                                onClick={() => { this.handleEditProductClick(product._id) }}
-                                            />
-                                            <Button basic
-                                                onClick={() => { this.handleDeleteProductClick(product._id) }}
-                                            >
-                                                <Icon name='delete' fitted color='red' />
-                                            </Button>
+                                            <Button.Group>
+                                                <Button negative onClick={() => { this.handleDeleteProductClick(product._id) }}>Xóa</Button>
+                                                <Button.Or text='-' />
+                                                <Button onClick={() => { this.handleEditProductClick(product._id) }}>Chỉnh sửa</Button>
+                                            </Button.Group>
                                         </Table.Cell>
                                     </Table.Row>
                                 )
