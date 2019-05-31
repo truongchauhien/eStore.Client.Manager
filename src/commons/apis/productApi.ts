@@ -8,7 +8,7 @@ import {
     IProductUpdateSuccessAction,
     IProductDeleteAction,
     IProductDeleteSuccessAction
-} from '../../modules/manager/product/product-actions';
+} from '../../modules/product/product-actions';
 import {
     IListProductRequestPayload,
     IListProductResponsePayload,
