@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { AppState } from '../../../rootReducer';
+import { AppState } from '../../rootReducer';
 import { Button, Table, Icon } from 'semantic-ui-react';
-import DetailModal from '../commons/detail-modal';
+import DetailModal from '../commons/detail-modal/detail-modal';
 import { IDistributorState } from './distributor-reducer';
 import DistributorDetail from './distributor-detail/distributor-detail';
 import { bindActionCreators } from 'redux';
 import { distributorCreateAction, distributorListAction, distributorUpdateAction, distributorDeleteAction } from './distributor-actions';
-import { IDistributor } from '../../../commons/types/models/distributor';
+import { IDistributor } from '../../commons/types/models/distributor';
 
 interface IDistributorManagementProps {
     distributors: IDistributorState
@@ -125,7 +125,7 @@ class DistributorManagement extends React.Component<IDistributorManagementProps,
         return (
             <div>
                 <div>
-                    <Button content='Thêm nhà phân phối' onClick={this.handleAddDistributorClick} />
+                    <Button primary content='Thêm nhà phân phối' onClick={this.handleAddDistributorClick} />
                     <DetailModal
                         open={isAddDistributorModalOpen}
                         title={'Thêm nhà phân phối'}
@@ -142,7 +142,7 @@ class DistributorManagement extends React.Component<IDistributorManagementProps,
                     <Table celled>
                         <Table.Header>
                             <Table.Row>
-                                <Table.HeaderCell>Tên danh mục</Table.HeaderCell>
+                                <Table.HeaderCell>Tên nhà phân phối</Table.HeaderCell>
                                 <Table.HeaderCell>Số điện thoại</Table.HeaderCell>
                                 <Table.HeaderCell>Địa chỉ</Table.HeaderCell>
                                 <Table.HeaderCell width='3'>
@@ -159,18 +159,11 @@ class DistributorManagement extends React.Component<IDistributorManagementProps,
                                         <Table.Cell>{distributor.phoneNumber}</Table.Cell>
                                         <Table.Cell>{distributor.address}</Table.Cell>
                                         <Table.Cell>
-                                            <Button
-                                                basic
-                                                onClick={() => { this.handleEditDistributorClick(distributor._id) }}
-                                            >
-                                                <Icon name='edit' fitted />
-                                            </Button>
-                                            <Button
-                                                basic
-                                                onClick={() => { this.handleDeleteDistributorClick(distributor._id) }}
-                                            >
-                                                <Icon name='delete' fitted color='red' />
-                                            </Button>
+                                            <Button.Group>
+                                                <Button negative onClick={() => { this.handleDeleteDistributorClick(distributor._id) }}>Xóa</Button>
+                                                <Button.Or text='-' />
+                                                <Button onClick={() => { this.handleEditDistributorClick(distributor._id) }}>Chỉnh sửa</Button>
+                                            </Button.Group>
                                         </Table.Cell>
                                     </Table.Row>
                                 );
