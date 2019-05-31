@@ -57,6 +57,10 @@ const roles: IRoleMap = {
             {
                 id: 'order',
                 permissions: ['read', 'create']
+            },
+            {
+                id: 'supply',
+                permissions: ['read', 'update-check']
             }
         ]
     },
