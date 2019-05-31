@@ -5,19 +5,19 @@ import {
     listProductEpic,
     updateProductEpic,
     deleteProductEpic
-} from './modules/manager/product/product-epics';
+} from './modules/product/product-epics';
 import {
     listCategoryEpic,
     createCategoryEpic,
     updateCategoryEpic,
     deleteCategoryEpic
-} from './modules/manager/category/category-epics';
+} from './modules/category/category-epics';
 import {
     listDistributorEpic,
     createDistributorEpic,
     updateDistributorEpic,
     deleteDistributorEpic
-} from './modules/manager/distributor/distributor-epics';
+} from './modules/distributor/distributor-epics';
 
 export default combineEpics(
     userLoginRequestEpic,
