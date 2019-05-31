@@ -2,12 +2,12 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Modal, Header, Button, Table, Pagination, Icon } from 'semantic-ui-react';
-import { AppState } from '../../../rootReducer';
+import { AppState } from '../../rootReducer';
 import CategoryDetail from './category-detail/category-detail';
-import DetailModal from '../commons/detail-modal';
+import DetailModal from '../commons/detail-modal/detail-modal';
 import { categoryCreateAction, categoryListAction, categoryUpdateAction, categoryDeleteAction } from './category-actions';
 import { ICategoryState } from './category-reducer';
-import { ICategory } from '../../../commons/types/models/category';
+import { ICategory } from '../../commons/types/models/category';
 
 interface ICategoryManagementProps {
     categoryCreateAction: typeof categoryCreateAction,
@@ -104,7 +104,7 @@ class CategoryManagement extends React.Component<ICategoryManagementProps, ICate
         return (
             <div>
                 <div>
-                    <Button content='Thêm danh mục' onClick={this.handleAddCategoryClick} />
+                    <Button primary content='Thêm danh mục' onClick={this.handleAddCategoryClick} />
                     <DetailModal
                         open={isAddCategoryModalOpen}
                         title={'Thêm danh mục'}
@@ -132,18 +132,11 @@ class CategoryManagement extends React.Component<ICategoryManagementProps, ICate
                                     <Table.Row key={category._id}>
                                         <Table.Cell>{category.name}</Table.Cell>
                                         <Table.Cell>
-                                            <Button
-                                                basic
-                                                onClick={() => { this.handleEditCategoryClick(category._id) }}
-                                            >
-                                                <Icon name='edit' fitted />
-                                            </Button>
-                                            <Button
-                                                basic
-                                                onClick={() => { this.handleDeleteCategoryClick(category._id) }}
-                                            >
-                                                <Icon name='delete' fitted color='red' />
-                                            </Button>
+                                            <Button.Group>
+                                                <Button negative onClick={() => { this.handleDeleteCategoryClick(category._id) }}>Xóa</Button>
+                                                <Button.Or text='-' />
+                                                <Button onClick={() => { this.handleEditCategoryClick(category._id) }}>Chỉnh sửa</Button>
+                                            </Button.Group>
                                         </Table.Cell>
                                     </Table.Row>
                                 );
@@ -153,7 +146,7 @@ class CategoryManagement extends React.Component<ICategoryManagementProps, ICate
                         <Table.Footer>
                             <Table.Row>
                                 <Table.HeaderCell colSpan='4'>
-                                    
+
                                 </Table.HeaderCell>
                             </Table.Row>
                         </Table.Footer>
