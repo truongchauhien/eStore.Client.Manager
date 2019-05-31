@@ -1,5 +1,5 @@
-import { IApiResponse } from "../../../commons/apis/commons/apiRequest";
-import { IProduct } from "../../../commons/types/models/product";
+import { IApiResponse } from "../../commons/apis/commons/apiRequest";
+import { IProduct } from "../../commons/types/models/product";
 
 //#region PRODUCT_CREATE
 export const PRODUCT_CREATE = 'PRODUCT_CREATE';
