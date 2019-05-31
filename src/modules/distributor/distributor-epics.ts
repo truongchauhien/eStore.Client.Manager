@@ -1,7 +1,7 @@
 import { mergeMap, filter, map, catchError } from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import { DISTRIBUTOR_CREATE, DISTRIBUTOR_LIST, DISTRIBUTOR_UPDATE, DISTRIBUTOR_DELETE, distributorCreateSuccessAction, distributorCreateFailureAction, distributorListSuccessAction, distributorListFailureAction, distributorUpdateSuccessAction, distributorUpdateFailureAction, distributorDeleteSuccessAction, distributorDeleteFailureAction } from './distributor-actions';
-import { createDistributorApiRequest, listDistributorApiRequest, updateDistributorApiRequest, deleteDistributorApiRequest } from '../../../commons/apis/distributorApi';
+import { createDistributorApiRequest, listDistributorApiRequest, updateDistributorApiRequest, deleteDistributorApiRequest } from '../../commons/apis/distributorApi';
 
 export const createDistributorEpic = (action$: any) => {
     return action$.pipe(
