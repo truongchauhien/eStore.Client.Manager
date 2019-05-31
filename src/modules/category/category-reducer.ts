@@ -12,7 +12,7 @@ import {
     CATEGORY_UPDATE_SUCCESS,
     CATEGORY_UPDATE_FAILURE
 } from './category-actions';
-import { ICategory } from '../../../commons/types/models/category';
+import { ICategory } from '../../commons/types/models/category';
 
 export interface ICategoryState {
     isFetching: boolean,
