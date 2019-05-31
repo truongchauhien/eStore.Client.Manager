@@ -19,7 +19,7 @@ import {
     listProductApiRequest,
     updateProductApiRequest,
     deleteProductApiRequest
-} from '../../../commons/apis/productApi';
+} from '../../commons/apis/productApi';
 
 export const createProductEpic = (action$: any) => {
     return action$.pipe(
