@@ -8,7 +8,7 @@ import {
     ICategoryUpdateSuccessAction,
     ICategoryDeleteSuccessAction,
     ICategoryDeleteAction
-} from '../../modules/manager/category/category-actions';
+} from '../../modules/category/category-actions';
 
 export async function createCategoryApiRequest(payload: ICategoryCreateAction['payload']): Promise<ICategoryCreateSuccessAction['payload']> {
     const response = await requestApi({
