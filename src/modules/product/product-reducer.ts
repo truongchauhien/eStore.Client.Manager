@@ -13,7 +13,7 @@ import {
     PRODUCT_DELETE_SUCCESS,
     PRODUCT_DELETE_FAILURE
 } from "./product-actions";
-import { IProduct } from "../../../commons/types/models/product";
+import { IProduct } from "../../commons/types/models/product";
 
 export interface ProductState {
     total: number,
