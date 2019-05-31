@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as _ from 'lodash'
 
 import { Form, Dropdown, Input } from 'semantic-ui-react';
-import { IDistributor } from '../../../../commons/types/models/distributor';
+import { IDistributor } from '../../../commons/types/models/distributor';
 
 interface IDistributorDetaillProps {
     distributor?: Partial<IDistributor>,
