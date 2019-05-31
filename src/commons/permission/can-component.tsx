@@ -38,9 +38,9 @@ class Can extends React.Component<ICanProps> {
         const hasPermission = this.check({ requiredResource: requiredResource, requiredPermission: requiredPermission })
         
         if (hasPermission) {
-            return children || yes;
+            return children || yes || null;
         } else {
-            return no;
+            return no || null;
         }
     }
 }
