@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import * as _ from 'lodash'
 
 import { Form, Dropdown, Input } from 'semantic-ui-react';
-import { ICategory } from '../../../../commons/types/models/category';
+import { ICategory } from '../../../commons/types/models/category';
 
 interface ICategoryDetailProps {
     category?: Partial<ICategory>,
