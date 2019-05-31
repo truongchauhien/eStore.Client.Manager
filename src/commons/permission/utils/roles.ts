@@ -16,16 +16,36 @@ const roles: IRoleMap = {
         description: '',
         resources: [
             {
-                id: 'user',
-                permissions: ['create', 'read', 'update', 'delete']
+                id: 'order',
+                permissions: []
             },
             {
                 id: 'product',
                 permissions: ['create', 'read', 'update', 'delete']
             },
             {
-                id: 'request',
-                permissions: ['create', 'read']
+                id: 'category',
+                permissions: ['create', 'read', 'update', 'delete']
+            },
+            {
+                id: 'distributor',
+                permissions: ['create', 'read', 'update', 'delete']
+            },
+            {
+                id: 'supply',
+                permissions: ['create', 'read', 'update-approval', 'delete']
+            },
+            {
+                id: 'report',
+                permissions: ['read']
+            },
+            {
+                id: 'employee',
+                permissions: ['create', 'read', 'update', 'delete']
+            },
+            {
+                id: 'workShift',
+                permissions: ['create', 'read', 'update', 'delete']
             }
         ]
     },
@@ -36,7 +56,7 @@ const roles: IRoleMap = {
         resources: [
             {
                 id: 'order',
-                permissions: ['create']
+                permissions: ['read', 'create']
             }
         ]
     },
@@ -50,8 +70,8 @@ const roles: IRoleMap = {
                 permissions: ['read', 'update']
             },
             {
-                id: 'request',
-                permissions: ['update']
+                id: 'supply',
+                permissions: ['read', 'update-check']
             }
         ]
     }
