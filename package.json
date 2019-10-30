@@ -10,7 +10,7 @@
   "author": "Truong Chau Hien",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-datepicker": "^2.6.0",
