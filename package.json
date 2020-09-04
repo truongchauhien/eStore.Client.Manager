@@ -34,7 +34,7 @@
     "@types/react-virtualized": "^9.21.1",
     "@types/webpack-env": "^1.13.9",
     "css-loader": "^2.1.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "redux-devtools": "^3.5.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
